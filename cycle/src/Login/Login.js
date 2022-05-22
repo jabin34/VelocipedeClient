@@ -3,13 +3,17 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import  svg from '../../src/assets/group-3.svg'
 import SocialLogin from '../Shared/SocialLogin';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebse.init';
 const Login = () => {
+  const [
+    signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const {register,formState: { errors }, handleSubmit,} = useForm();
 
     const onSubmit = (data) => {
         
         console.log(data);
-       // signInWithEmailAndPassword(data.email,data.password);
+        signInWithEmailAndPassword(data.email,data.password);
       };
     return (
         <div className=" flex h-screen justify-center items-center" style={{"background-image": `url(${svg})`}}>

@@ -1,13 +1,32 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import  svg from '../../src/assets/group-3.svg'
+import { Link, useNavigate } from 'react-router-dom';
+import  svg from '../../src/assets/group-3.svg';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile,useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../src/firebse.init';
+import Loading from '../Shared/Loading';
 const Registration = () => {
+    const [createUserWithEmailAndPassword,user,  loading,  error,] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const {register,formState: { errors }, handleSubmit,} = useForm();
+    const navigate = useNavigate();
+    let signInErrMsg ;
+    if(loading || gloading || updating){
+        return <Loading/>;
+    }
+    if(error || gerror || updateError){
+        signInErrMsg = <p className="text-red-500"><small>{error?.message || gerror?.message || updateError?.message}</small></p>;
+      }
+      if (guser||user) {
+       // console.log(guser.displayName);
+        navigate('/home');
+      }
     const onSubmit = async(data) => {
         console.log(data);
-       //  await createUserWithEmailAndPassword(data.email,data.password);
-      //  await updateProfile({ displayName:data.name });
+         await createUserWithEmailAndPassword(data.email,data.password);
+         await updateProfile({ displayName:data.name });
+        
        
       };
     return (
@@ -89,7 +108,7 @@ const Registration = () => {
                  
                 </label>
               </div>
-           
+             {signInErrMsg}
               
               <input type="submit" className="btn w-full max-w-xs text-white" value="Register" />
             </form>
@@ -99,7 +118,7 @@ const Registration = () => {
             <button
               class="btn btn-outline"
               onClick={() => {
-                //signInWithGoogle();
+                signInWithGoogle();
               }}
             >
               Continue with Google
