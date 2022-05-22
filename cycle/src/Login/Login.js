@@ -1,14 +1,26 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import  svg from '../../src/assets/group-3.svg'
 import SocialLogin from '../Shared/SocialLogin';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebse.init';
+import Loading from '../Shared/Loading';
 const Login = () => {
-  const [
-    signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const {register,formState: { errors }, handleSubmit,} = useForm();
+    if(loading || gloading ){
+      return <Loading/>;
+    }
+    let signInErrMsg ;
+  if(error || gerror ){
+    signInErrMsg = <p className="text-red-500"><small>{error?.message || gerror?.message }</small></p>;
+  }
+  if (guser||user) {
+    navigate('/home');
+  }
 
     const onSubmit = (data) => {
         
@@ -73,7 +85,7 @@ const Login = () => {
                 </label>
               </div>
            
-              
+              {signInErrMsg}
               <input type="submit" className="btn w-full max-w-xs bg-blue-700 border-0 text-white" value="Login" />
             </form>
             <p><small>New to Cycle?<Link to="/registration" className="text-secondary" > Create New Account</Link></small>
@@ -84,7 +96,7 @@ const Login = () => {
             <button
               class="btn btn-outline"
               onClick={() => {
-               // signInWithGoogle();
+                signInWithGoogle();
               }}
             >
               Continue with Google

@@ -41,7 +41,7 @@ const Header = () => {
   </div>
   <div className="navbar-end">
     {
-     user?<Link to='/portfolio' className='px-2' >{user.displayName} </Link>:''
+     user?<Link to='/portfolio' className='px-2' title={user.displayName} >{user.displayName.split(' ')[0]} </Link>:''
     }
     {
       user?<div className="btn" onClick={logout}>Logout</div>: <Link to="/login" className="btn">Login</Link>
