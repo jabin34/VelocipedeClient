@@ -1,11 +1,14 @@
 import React from 'react';
+import Banner from './Banner';
+import Tools from './Tools';
 
 const Home = () => {
     return (
         <div>
-           <h1 class="text-1xl font-bold underline">
-      home
-  </h1>
+           
+            <Banner/>
+            <Tools/>
+
         </div>
     );
 };
