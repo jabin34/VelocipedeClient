@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const navList = <>
-     <li><Link to='/home'>Item 1</Link></li>
-     <li><Link to='/'>Item 3</Link></li>
+     <li><Link to='/home'>Home</Link></li>
+     <li><Link to='/blog'>Blog</Link></li>
+     <li><Link to='/portfolio'>Portfolio</Link></li>
+     {/* <li><Link to='/login'>Login</Link></li> */}
     </>;
     return (
         <div>
@@ -26,7 +28,7 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to="/" className="btn">Get started</Link>
+    <Link to="/login" className="btn">Login</Link>
   </div>
 </div>
         </div>
