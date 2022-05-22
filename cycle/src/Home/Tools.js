@@ -8,7 +8,7 @@ const Tools = () => {
         <div>
             <h3 className='text-3xl'>Tools</h3>
         <div className='grid grid-cols-1 md:grid-cols-3 p-5'>
-            {tools.map(part=><SingleTool part={part}/>)}
+            {tools.map(part => <SingleTool part={part}/>)}
         </div>
         </div>
        

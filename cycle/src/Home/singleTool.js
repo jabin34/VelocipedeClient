@@ -1,10 +1,11 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const SingleTool = ({ part }) => {
-    const{id,name,img,desc,price,quantity,available}=part;
+    const navigate = useNavigate();
+    const{_id,name,img,desc,price,quantity,available}=part;
     const purchase=(id)=>{
-     Navigate('/')
+     navigate(`/purchase/${id}`);
     }
   return (
     <div className="m-3">  
@@ -26,7 +27,7 @@ const SingleTool = ({ part }) => {
             <div class="badge badge-outline">Quantity:{quantity}</div>
             <div class="badge badge-outline">Avaiable:{available}</div>
           </div>
-         <div > <button class="btn btn-outline btn-info " onClick={()=>purchase(id)}>Book Order</button></div>
+         <div > <button class="btn btn-outline btn-info " onClick={()=>purchase(_id)}>Book Order</button></div>
         </div>
        
       </div>
