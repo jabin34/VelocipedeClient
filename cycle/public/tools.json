@@ -5,6 +5,9 @@
     "price":2300,
     "quantity":4,
     "supplier":" Hyundai Motor",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 },
 {   "id":2,
@@ -14,6 +17,9 @@
     "price":2900,
     "quantity":7,
     "supplier":"Daimler",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 },
 {   "id":3,
@@ -23,6 +29,9 @@
     "price":2100,
     "quantity":5,
     "supplier":"General Motors",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 },
 {   "id":4,
@@ -32,6 +41,9 @@
     "price":1900,
     "quantity":6,
     "supplier":"Ford Motor",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 },
 {  "id":5,
@@ -41,6 +53,9 @@
     "price":3800,
     "quantity":3,
     "supplier":"BMW Group",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 },
 {   
@@ -51,6 +66,9 @@
     "price":2500,
     "quantity":2,
     "supplier":"SAIC Motor",
+    "min-order":12,
+    "status":"Out of Stock",
+    "available":15,
     "email":"isratjabinesha@gmail.com"
 }
 ]
