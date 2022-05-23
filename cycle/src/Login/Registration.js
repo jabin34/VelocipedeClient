@@ -5,12 +5,14 @@ import  svg from '../../src/assets/group-3.svg';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../src/firebse.init';
 import Loading from '../Shared/Loading';
+import useToken from '../Hooks/useToken';
 const Registration = () => {
     const [createUserWithEmailAndPassword,user,  loading,  error,] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const {register,formState: { errors }, handleSubmit,} = useForm();
     const navigate = useNavigate();
+    const [token] = useToken(user || guser);
     let signInErrMsg ;
     if(loading || gloading || updating){
         return <Loading/>;
@@ -18,7 +20,7 @@ const Registration = () => {
     if(error || gerror || updateError){
         signInErrMsg = <p className="text-red-500"><small>{error?.message || gerror?.message || updateError?.message}</small></p>;
       }
-      if (guser||user) {
+      if (token) {
        // console.log(guser.displayName);
         navigate('/home');
       }
@@ -27,7 +29,6 @@ const Registration = () => {
          await createUserWithEmailAndPassword(data.email,data.password);
          await updateProfile({ displayName:data.name });
         
-       
       };
     return (
         <div className=" flex h-screen justify-center items-center" style={{"background-image": `url(${svg})`}} alt="pic">

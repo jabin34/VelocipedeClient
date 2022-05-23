@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import  svg from '../../src/assets/group-3.svg'
@@ -6,24 +6,30 @@ import SocialLogin from '../Shared/SocialLogin';
 import { useSignInWithEmailAndPassword,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebse.init';
 import Loading from '../Shared/Loading';
+import useToken from '../Hooks/useToken';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const {register,formState: { errors }, handleSubmit,} = useForm();
+    const [token] = useToken(user || guser);
+    let from = location.state?.from?.pathname ||'/';
+    useEffect( () =>{
+      if (token) {
+        navigate(from,{replace:true});
+      }
+    
+    },[token,from,navigate]);
+
     if(loading || gloading ){
       return <Loading/>;
     }
-    let signInErrMsg ;
+  let signInErrMsg ;
   if(error || gerror ){
     signInErrMsg = <p className="text-red-500"><small>{error?.message || gerror?.message }</small></p>;
   }
-  let from = location.state?.from?.pathname ||'/';
-  if (guser||user) {
-    navigate(from,{replace:true});
-  }
-
+  
     const onSubmit = (data) => {
         
         console.log(data);
