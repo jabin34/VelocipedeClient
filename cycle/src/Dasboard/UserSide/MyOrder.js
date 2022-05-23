@@ -6,12 +6,13 @@ import Loading from '../../Shared/Loading';
 import {toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import OrderRow from './OrderRow';
 const MyOrder = () => {
     const[user]= useAuthState(auth);
     const navigate = useNavigate();
-    const email = user.email;
+    const email = user?.email;
     const {data: myorders, isLoading } = useQuery("myorderDetais", () =>
-        fetch(`http://localhost:4000/order?email=${email}`, {
+        fetch(`http://localhost:4000/order/${email}`, {
           method: "get",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -31,8 +32,30 @@ const MyOrder = () => {
       }
 
     return (
-        <div className='text-3xl'>
-            my order{myorders?.length}
+        <div >
+          <p className='text-3xl'> my order :{myorders?.length}</p> 
+            <div class="overflow-x-auto">
+  <table class="table w-full">
+  
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Action</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+     {myorders.map((order,index)=><OrderRow key={order._id} order={order} index={index}/>)}
+    
+      
+    </tbody>
+  </table>
+</div>
         </div>
     );
 };
