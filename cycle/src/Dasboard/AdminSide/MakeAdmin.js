@@ -5,8 +5,7 @@ import UserRow from './UserRow';
 
 const MakeAdmin = () => {
 
-    const {
-        data: users, isLoading, refetch, } = useQuery("users", () =>
+    const {data: users, isLoading, refetch, } = useQuery("users", () =>
         fetch(`http://localhost:4000/user`, {
           method: "get",
            headers: {
@@ -33,7 +32,7 @@ const MakeAdmin = () => {
     </thead> 
     <tbody>
 
-     {users.map((user,index)=>< UserRow key={user._id} user={user} index={index} />)}
+     {users.map((user,index)=>< UserRow key={user._id} user={user} index={index} refetch={refetch} />)}
      
      
       
