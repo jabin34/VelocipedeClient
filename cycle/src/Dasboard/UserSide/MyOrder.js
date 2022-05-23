@@ -44,8 +44,8 @@ const MyOrder = () => {
         <th>Quantity</th>
         <th>Price</th>
         <th>Total</th>
-        <th>Action</th>
         <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>

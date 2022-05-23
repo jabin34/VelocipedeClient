@@ -18,7 +18,9 @@ const OrderRow = ({order,index}) => {
         <td title={desc}>{decLength>20? desc.slice(0,20)+".......":desc}</td>
         <td>{qnty}</td>
         <td>{total}</td>
-        <td><button class="btn btn-xs">Pay</button></td>
+        <td><button class="btn btn-xs">Pay</button>
+        <button class="btn btn-xs">Cancel</button>
+        </td>
       </tr>
     );
 };
