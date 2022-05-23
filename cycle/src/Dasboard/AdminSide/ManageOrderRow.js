@@ -1,12 +1,14 @@
 import React from 'react';
 
-const OrderRow = ({order,index}) => {
-    const{name,img,desc,qnty,total } =order;
+const ManageOrderRow = ({order,index}) => {
+    const{name,img,desc,qnty,total,email } = order;
     let decLength = desc.length;
     return (
         <tr>
         <th>{index+1}</th>
+        <td>{email}</td>
         <td>{name}</td>
+        
         <td>
         <div class="avatar">
   <div class="w-16 rounded">
@@ -23,4 +25,4 @@ const OrderRow = ({order,index}) => {
     );
 };
 
-export default OrderRow;
+export default ManageOrderRow;
