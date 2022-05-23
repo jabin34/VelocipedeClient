@@ -1,8 +1,10 @@
 import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react';
 import {toast } from 'react-toastify';
+import UserModal from './UserModal';
 const UserRow = ({user,index,refetch}) => {
     const {email,role} = user;
+
     const makeAdmin = () =>{
         
 fetch(`http://localhost:4000/user/admin/${email}`,{
@@ -20,10 +22,30 @@ fetch(`http://localhost:4000/user/admin/${email}`,{
 .then(data=>{
     console.log(data);
         refetch();
-        if(data.data.modifiedCount>0){
+        if(data.modifiedCount>0){
         toast.success('User Role upadated Successfully!!!'); }
 })
     }
+
+const removeUser = (email)=>{
+    console.log(email);
+    
+     fetch(`http://localhost:4000/user/${email}`,{
+    method: "delete",
+    headers: {
+     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+})
+.then(res=>res.json())
+.then(data=>{
+    console.log(data);
+        refetch();
+        toast.success('User deleted Successfully!!!'); }
+)
+    }
+
+     
+    
     return (
       
      <tr>
@@ -40,8 +62,12 @@ fetch(`http://localhost:4000/user/admin/${email}`,{
         
       </td>
       <td>
-        <button class="btn btn-xs bg-red-500 text-white border-0">Remove User</button>
+        <button for="my-modal" class="btn btn-xs bg-red-500 text-white border-0" onClick={()=>removeUser(email)} >Remove User</button>
       </td>
+    
+
+
+
     </tr>
         
     );
