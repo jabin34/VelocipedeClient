@@ -62,8 +62,8 @@ const AddProduct = () => {
         console.log(data);
       };
     return (
-        <div className='flex flex-row justify-center'>
-           <div className="">
+        <div className='flex flex-col justify-center w-100'>
+           <div className="mx-auto w-96">
       <form onSubmit={handleSubmit(onSubmit)} >
            {/* name */}
         <div class="form-control w-full max-w-xs">
@@ -232,11 +232,14 @@ const AddProduct = () => {
             )}
           </label>
         </div>
+        <div class="form-control w-full max-w-xs">
         <input
           type="submit"
           className="btn w-full max-w-xs text-white"
           value="Add"
         />
+        </div>
+       
       </form>
     </div>
         </div>

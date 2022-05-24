@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderRow = ({order,index}) => {
-    const{name,img,desc,qnty,total } =order;
+    const{_id,name,img,desc,qnty,total ,paid} =order;
     let decLength = desc.length;
     return (
         <tr>
@@ -18,8 +19,10 @@ const OrderRow = ({order,index}) => {
         <td title={desc}>{decLength>20? desc.slice(0,20)+".......":desc}</td>
         <td>{qnty}</td>
         <td>{total}</td>
-        <td><button class="btn btn-xs">Pay</button>
-        <button class="btn btn-xs">Cancel</button>
+        <td>
+       {(total && !paid) &&<><Link to={`/dashboard/payment/${_id}`}> <button class="btn btn-xs">Pay</button></Link> <button class="btn btn-xs btn-warning text-white">Cancel</button></> }
+       {(total && paid) &&  <span class="btn btn-xs btn-success text-white ">Paid</span> }
+        
         </td>
       </tr>
     );

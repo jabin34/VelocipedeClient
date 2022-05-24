@@ -35,11 +35,11 @@ const AddReview = () => {
     return (
         <div>
 <div class="card  bg-base-100 shadow-xl m-5">
-  <div class="card-body">
+  <div class="card-body ">
     <h2 class="card-actions justify-center text-3xl">Add Review</h2>
    
-    <div class="grid justify-center gap-5">
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div class="grid  mx-auto w-3/4 md:w-80">
+    <form onSubmit={handleSubmit(onSubmit)} >
               {/* name */}
               <div class="form-control w-full max-w-xs">
                 <label class="label">
@@ -70,7 +70,7 @@ const AddReview = () => {
                 </label>
                 <input
                   type="number" min={0} max={5}
-                  placeholder="your name...."
+                  placeholder="rating...."
                   class="input input-bordered w-full "
                   {...register("rating", {
                     required: {
