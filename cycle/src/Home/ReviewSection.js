@@ -4,7 +4,8 @@ import ReviewCard from './ReviewCard';
 
 
 const ReviewSection = () => {
-    const [reviews,setReviews]=useState([]);
+    const [reviews,setReviews] = useState([]);
+    const reviewsdata = reviews.slice(0,4);
 useEffect(()=>{
     fetch(`http://localhost:4000/review`, {
         method: "get",
@@ -24,10 +25,11 @@ useEffect(()=>{
   
     return (
         <div>
-           <h3>Reviews</h3>
-           <div className='grid  grid-cols-1  md:grid-cols-3 g-4 '>
+           <h3 className='text-3xl p-5 '>Reviews</h3>
+          <hr/>
+           <div className='grid  grid-cols-1  md:grid-cols-4 g-4 '>
                
-              {reviews.map((review)=><ReviewCard key={review._id} review={review}/>)}
+              {reviewsdata.map((review)=><ReviewCard key={review._id} review={review}/>)}
            </div>
 
         </div>

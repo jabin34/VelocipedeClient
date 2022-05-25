@@ -4,11 +4,13 @@ import SingleTool from './SingleTool';
 
 const Tools = () => {
     const[tools] = useTools();
+    const toolsData = tools.slice(0,6);
     return (
         <div>
-            <h3 className='text-3xl'>Tools</h3>
+            <h3 className='text-3xl p-5 '>Tools</h3>
+            <hr/>
         <div className='grid grid-cols-1 md:grid-cols-3 p-5'>
-            {tools.map(part => <SingleTool part={part}/>)}
+            {toolsData.map(part => <SingleTool part={part}/>)}
         </div>
         </div>
        

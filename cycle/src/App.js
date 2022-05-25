@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAdmin from './Login/RequireAdmin';
 import ManageProduct from './Dasboard/AdminSide/ManageProduct';
 import Payment from './Dasboard/UserSide/Payment';
+import ToolDetails from './Home/ToolDetails';
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/portfolio" element={<Portfolio/>} />
           <Route path="/purchase/:id" element={<RequiredAuth><Purchase/></RequiredAuth>} />
+          <Route path="/details" element={<RequiredAuth><ToolDetails/></RequiredAuth>} ></Route>
           <Route path="/dashboard" element={<RequiredAuth><Dashboard/></RequiredAuth>} >
             <Route  index element ={<MyProfile/>}/>
             <Route  path="order" element ={<MyOrder/>}/>

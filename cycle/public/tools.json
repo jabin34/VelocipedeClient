@@ -1,25 +1,25 @@
 [{  
-    "name":"JAGUER M1 HYBRID",
-    "img":"https://i.ibb.co/42LhLdv/cars-thumb01.jpg",
-    "desc":"Jaguar’s first compact SUV is a unique combination of looks, agility and dynamic driving.",
-    "price":2300,
+    "name":"Assos Chamois Creme",
+    "img":"https://i.ibb.co/LPWbTqM/aso.jpg",
+    "desc":"he unique Chamois Creme is now in its fifth edition and protects the skin with natural extracts from friction-induced skin irritation and bacterial buildup.",
+    "price":230,
     "quantity":4,
-    "supplier":" Hyundai Motor",
-    "minorder":12,
+    
+    "minorder":5,
     "status":"Out of Stock",
-    "available":15
+    "available":115
    
 },
 {   
-    "name":"AUDI NEW BOM 800",
-    "img":"https://i.ibb.co/tp4H5vX/released-cars-thumb03.jpg",
-    "desc":"The Audi RS Q8 has 1 Petrol Engine on offer. The Petrol engine is 3998 cc . It is available with Automatic transmission.",
-    "price":2900,
+    "name":"Campagnolo Ekar Groupset",
+    "img":"https://i.ibb.co/b50D6rV/campagnolo.jpg",
+    "desc":"The Ekar components deliver a 1x13-speed transmission the way it should be: wide range, close ratio and no compromise.",
+    "price":290,
     "quantity":7,
-    "supplier":"Daimler",
+   
     "minorder":12,
     "status":"Out of Stock",
-    "available":15
+    "available":110
    
 },
 {  
@@ -28,47 +28,56 @@
     "desc":"The BMW i8 was a plug-in hybrid sports car developed by BMW. The i8 was part of BMW's electrified fleet and was marketed under the BMW i sub-brand.",
     "price":2100,
     "quantity":5,
-    "supplier":"General Motors",
+   
     "minorder":12,
     "status":"Out of Stock",
-    "available":15
+    "available":450
    
 },
 {   
-    "name":"AUDI A8 HYBRID",
-    "img":"https://i.ibb.co/88tGNzh/released-cars-thumb02.jpg",
-    "desc":"Audi is offering the new A8 with three hybrid powertrain modes combined with eight-speed automatic transmission and quattro all-wheel drive. ",
-    "price":1900,
+    "name":"Ritchey SWISS CROSS DISC V2 Frameset",
+    "img":"https://i.ibb.co/rkJYsFB/ritchy.jpg",
+    "desc":"Tom Ritchey’s deep cyclocross heritage can be felt with every pedal stroke, each turn around the course tape and in all of the sprints. ",
+    "price":190,
     "quantity":6,
-    "supplier":"Ford Motor",
-    "minorder":12,
+  
+    "minorder":6,
     "status":"Out of Stock",
-    "available":15
+    "available":155
    
 },
 {  
-    "name":"BMW 8-Series 4-Door",
-    "img":"https://i.ibb.co/1JF24YN/inventory-list-img09.jpg",
-    "desc":"The 2023 BMW M8 Gran Coupe is the big, brash, and beautiful four-door member of the M8 family.",
-    "price":3800,
+    "name":"WCS Zeta Disc Wheelset",
+    "img":"https://i.ibb.co/6b5HCVv/wheels.jpg",
+    "desc":"Tubeless, disc and thru-axle version of Ritchey's do-everything aluminum race wheel",
+    "price":1380,
     "quantity":3,
-    "supplier":"BMW Group",
+    
     "minorder":12,
     "status":"Out of Stock",
-    "available":15
+    "available":315
    
 },
 {   
   
-    "name":"AUDI NEW BOM 800",
-    "img":"https://i.ibb.co/GFWXH25/released-cars-thumb05.jpg",
-    "desc":"Explore the full lineup of Audi Sport, SUVs, sedans, e-tron models & more. Build your own, search inventory and explore current special offers.",
-    "price":2500,
+    "name":"Park Tool Spoke Wrench Vinyl",
+    "img":"https://i.ibb.co/wgV4TmF/park.jpg",
+    "desc":"Park Tool Spoke Wrenches are vinyl coated in four colors indicating the size at a glance.",
+    "price":250,
     "quantity":2,
-    "supplier":"SAIC Motor",
     "minorder":12,
     "status":"Out of Stock",
-    "available":15
+    "available":558
   
+},
+{
+    "name":"Magura MT8 Pro Disc Brake",
+    "img":"https://i.ibb.co/wJMx1cW/carbon.jpg",
+    "desc":"The Magura MT8 Pro offers the same performance as the high-end MT8 SL model at an attractive price",
+    "price":450,
+    "quantity":2,
+    "minorder":15,
+    "status":"Out of Stock",
+    "available":758
 }
 ]

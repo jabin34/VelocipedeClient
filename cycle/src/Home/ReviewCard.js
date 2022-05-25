@@ -6,12 +6,12 @@ const ReviewCard = ({review}) => {
 
   return (
         
-     <div class="card w-96 bg-base-100 shadow-xl p-5 m-4" >
-  <div class="card-body">
+  <div class="card   bg-base-100 shadow-xl p-5 m-4" >
+  <div class="">
     <div class=" ">
     <p className='text-2xl'>{review.name}</p>
     <p>{review.comment}</p>
-    <p>{review.rating}</p>
+    <p>Rating: {review.rating}</p>
 
    
 <div class="rating">

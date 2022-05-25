@@ -33,7 +33,8 @@ const {data,isLoading, refetch} = useQuery("users", () =>
   //       console.log(item);
   //     });
   // },[id]);
-  
+  let minqty = data.minorder;
+  let maxorder =data.available;
    const quantityHandle = (e) =>{
       e.preventDefault();
      const qnty = qtyRef.current.value;
@@ -96,43 +97,46 @@ const {data,isLoading, refetch} = useQuery("users", () =>
     <div>
       <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row">
-          <img src={data?.img} alt="pic" />
-          <div>
+          <img src={data?.img} alt="pic" class="mask mask-squircle w-3/4 md:w-96 "  />
+          <div className="p-5">
             <h1 class="text-5xl font-bold">{data?.name}</h1>
-            <p class="py-6">{data?.desc}</p>
-            <p class="py-6">Avaiable:{data?.available}</p>
-            <p class="py-6">Minimum order:{data?.minorder}</p>
+            <p class="text-justify">{data?.desc}</p>
+            
             <div>
-             
                 <label class="label">
-                  <span class="label-text">Name:</span>
+                  <span class="label-text">Name:{user?.displayName}</span>
                 </label>
-                <input disabled
-                  type="text" value={user?.displayName}
-                  class="input input-bordered input-md w-full max-w-xs text-black"
-                />
+                
                 <label class="label">
-                  <span class="label-text">Email:</span>
+                  <span class="label-text">Email:{user?.email}</span>
                 </label>
-                <input
-                  type="text" disabled value={user?.email}
-                  class="input input-bordered input-md w-full max-w-xs text-black"
-                />
-                <div className="flex align-items-center mt-2">
+                <label class="label">
+                  <span class="label-text">Avaiable:{data?.available}</span>
+                </label>
+                <label class="label">
+                  <span class="label-text">Minimum order:{data?.minorder}</span>
+                </label>
+
+
+           
+                <div className="flex  align-items-center mt-2">
                   <form  onSubmit={quantityHandle}>
-                  <div class="form-control w-full max-w-xs">
+                  <div class=" flex align-items-center flex-col md:flex-row">
                 <label class="label">
-                  <span class="label-text">Task Name</span>
+                  <span class="label-text">Quantity:</span>
                 </label>
                 <input
+                min={minqty}
+                
                   ref={qtyRef}
                   type="number"
                   placeholder="qty"
-                  class="input input-bordered w-full max-w-xs"
+                  class="input input-bordered w-full max-w-xs m-2"
                   
                 />
+                 <input class="btn btn-md m-2" type="submit" value="Order" />
               </div>
-              <input class="btn btn-md " type="submit" value="Proceed" />
+             
                  </form>
                  
                 </div>
