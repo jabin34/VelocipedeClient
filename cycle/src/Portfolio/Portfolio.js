@@ -82,9 +82,15 @@ const Portfolio = () => {
 <h2 className='text-3xl py-2 '>My Recent Projects</h2>
 <div class="divider"></div> 
 <div className='grid  grid-cols-1  md:grid-cols-3 gap-4 justify-items-center'>
-<div className='border  shadow-sm rounded p-4 w-100'><iframe  src="https://wirehouse-e5bc6.web.app/" ></iframe></div> 
-<div className='border   shadow-sm rounded p-4 w-100'><iframe src="https://todoapp-b7e2b.web.app/"></iframe></div> 
-<div className='border   shadow-sm rounded p-4 w-100'><iframe src="https://homefoodie-b9dde.web.app/"></iframe></div> 
+ <div className='border  shadow-sm rounded p-4 w-100'><iframe  src="https://wirehouse-e5bc6.web.app/" ></iframe>
+ <a href='https://wirehouse-e5bc6.web.app/' target='blank' className='btn btn-xs m-1'>Link</a>
+ </div> 
+<div className='border   shadow-sm rounded p-4 w-100'><iframe src="https://todoapp-b7e2b.web.app/"></iframe>
+<a href='https://todoapp-b7e2b.web.app/' target='blank' className='btn btn-xs m-1'>Link</a>
+</div> 
+<div className='border   shadow-sm rounded p-4 w-100'><iframe src="https://homefoodie-b9dde.web.app/"></iframe>
+<a href='https://homefoodie-b9dde.web.app/' target='blank' className='btn btn-xs m-1'>Link</a>
+</div> 
 </div>
 
 </div>
