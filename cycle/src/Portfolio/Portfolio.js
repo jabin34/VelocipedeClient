@@ -78,10 +78,10 @@ const Portfolio = () => {
     
 </div>
 </div>
-<div className='p-'>
+<div className=''>
 <h2 className='text-3xl py-2 '>My Recent Projects</h2>
 <div class="divider"></div> 
-<div className='grid  grid-cols-1  md:grid-cols-3 gap-4 justify-items-center'>
+<div className='grid  grid-cols-1  md:grid-cols-3 gap-4 justify-items-center mt-36 mb-36'>
  <div className='border  shadow-sm rounded p-4 w-100'><iframe  src="https://wirehouse-e5bc6.web.app/" ></iframe>
  <a href='https://wirehouse-e5bc6.web.app/' target='blank' className='btn btn-xs m-1'>Link</a>
  </div> 

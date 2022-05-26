@@ -2,7 +2,7 @@ import React from 'react';
 import logo from'../../src/assets/bicyclelogo.png';
 const Footer = () => {
     return (
-        <div>
+        <div className='mt-5'>
             <footer class="footer p-10  bg-neutral text-neutral-content">
   <div>
   <img src={logo}  className="w-24" height={30} alt='logo' />

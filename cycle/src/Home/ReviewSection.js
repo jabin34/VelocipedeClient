@@ -9,9 +9,9 @@ const ReviewSection = () => {
 useEffect(()=>{
     fetch(`http://localhost:4000/review`, {
         method: "get",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
+        // headers: {
+        //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        // },
       }).then((res) => res.json())
       .then(result=>{
         console.log(result);
@@ -25,9 +25,9 @@ useEffect(()=>{
   
     return (
         <div className='my-24'>
-           <h3 className='text-3xl p-5 '>Reviews</h3>
+           <h3 className=' p-5 text-3xl font-bold'>Reviews</h3>
            <div class="divider mb-4"></div> 
-           <div className='grid  grid-cols-1  md:grid-cols-4 g-4 m-12 '>
+           <div className='grid  grid-cols-1  md:grid-cols-4 g-4 my-36 mx-12 '>
                
               {reviewsdata.map((review)=><ReviewCard key={review._id} review={review}/>)}
            </div>
