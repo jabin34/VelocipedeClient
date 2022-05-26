@@ -23,6 +23,7 @@ import ManageProduct from './Dasboard/AdminSide/ManageProduct';
 import Payment from './Dasboard/UserSide/Payment';
 import ToolDetails from './Home/ToolDetails';
 import Notfound from './Notfound/Notfound';
+import Footer from './Shared/Footer';
 function App() {
   return (
     <div className="App">
@@ -51,6 +52,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="*" element={<Notfound/>} />
       </Routes>
+      <Footer/>
       <ToastContainer/>
     </div>
   );
