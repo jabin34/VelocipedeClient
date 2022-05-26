@@ -1,0 +1,83 @@
+[{  
+    "name":"Assos Chamois Creme",
+    "img":"https://i.ibb.co/LPWbTqM/aso.jpg",
+    "desc":"he unique Chamois Creme is now in its fifth edition and protects the skin with natural extracts from friction-induced skin irritation and bacterial buildup.",
+    "price":230,
+    "quantity":4,
+    
+    "minorder":5,
+    "status":"Out of Stock",
+    "available":115
+   
+},
+{   
+    "name":"Campagnolo Ekar Groupset",
+    "img":"https://i.ibb.co/b50D6rV/campagnolo.jpg",
+    "desc":"The Ekar components deliver a 1x13-speed transmission the way it should be: wide range, close ratio and no compromise.",
+    "price":290,
+    "quantity":7,
+   
+    "minorder":12,
+    "status":"Out of Stock",
+    "available":110
+   
+},
+{  
+    "name":"MERCEDEZ BENZ EI8",
+    "img":"https://i.ibb.co/JdHXZGt/released-cars-thumb04.jpg",
+    "desc":"The BMW i8 was a plug-in hybrid sports car developed by BMW. The i8 was part of BMW's electrified fleet and was marketed under the BMW i sub-brand.",
+    "price":2100,
+    "quantity":5,
+   
+    "minorder":12,
+    "status":"Out of Stock",
+    "available":450
+   
+},
+{   
+    "name":"Ritchey SWISS CROSS DISC V2 Frameset",
+    "img":"https://i.ibb.co/rkJYsFB/ritchy.jpg",
+    "desc":"Tom Ritchey’s deep cyclocross heritage can be felt with every pedal stroke, each turn around the course tape and in all of the sprints. ",
+    "price":190,
+    "quantity":6,
+  
+    "minorder":6,
+    "status":"Out of Stock",
+    "available":155
+   
+},
+{  
+    "name":"WCS Zeta Disc Wheelset",
+    "img":"https://i.ibb.co/6b5HCVv/wheels.jpg",
+    "desc":"Tubeless, disc and thru-axle version of Ritchey's do-everything aluminum race wheel",
+    "price":1380,
+    "quantity":3,
+    
+    "minorder":12,
+    "status":"Out of Stock",
+    "available":315
+   
+},
+{   
+  
+    "name":"Park Tool Spoke Wrench Vinyl",
+    "img":"https://i.ibb.co/wgV4TmF/park.jpg",
+    "desc":"Park Tool Spoke Wrenches are vinyl coated in four colors indicating the size at a glance.",
+    "price":250,
+    "quantity":2,
+    "minorder":12,
+    "status":"Out of Stock",
+    "available":558
+  
+},
+{
+    "name":"Magura MT8 Pro Disc Brake",
+    "img":"https://i.ibb.co/wJMx1cW/carbon.jpg",
+    "desc":"The Magura MT8 Pro offers the same performance as the high-end MT8 SL model at an attractive price",
+    "price":450,
+    "quantity":2,
+    "minorder":15,
+    "status":"Out of Stock",
+    "available":758
+}
+]
