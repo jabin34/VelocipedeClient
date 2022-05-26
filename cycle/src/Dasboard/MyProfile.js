@@ -64,7 +64,7 @@ const MyProfile = () => {
             <p>Education: {userinfo?.education}</p>
             <p>Adress: {userinfo?.adress}</p>
             <p>Phone: {userinfo?.phone}</p>
-            <p>Linkedin: </p>
+            
             <label for="my-modal-3" class="btn  btn-sm">
               Update
             </label>

@@ -1,23 +1,10 @@
 import React from 'react';
 
 import {toast } from 'react-toastify';
-const ItemTr = ({item,index}) => {
-    const{_id,name,img,desc,price,quantity,available,minorder}= item;
+const ItemTr = ({item,index,setModal}) => {
+    const{_id,name,img,desc,price,quantity,available,minorder} = item;
     let decLength = desc.length;
-    const deleteHandle = (id)=>{
-        
-        fetch(`http://localhost:4000/tools/${id}`,{
-            method: "delete",
-            headers: {
-             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-                  toast.success('product data deleted Successfully!!!'); }
-        )
-    }
+  
     return (
         <tr>
         <td>{index+1}</td>
@@ -33,7 +20,8 @@ const ItemTr = ({item,index}) => {
         <td>{minorder}</td>
         <td>{available}</td>
         
-        <td> <button class="btn btn-xs" onClick={()=>deleteHandle(_id)}>Delete</button></td>
+        <td> <label for="product-delete" class="btn btn-xs"onClick={()=>setModal(item)} >Delete</label>
+           </td>
       </tr>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebse.init';
@@ -7,11 +7,14 @@ import {toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import OrderRow from './OrderRow';
+import OrderDeleteModal from './OrderDeleteModal';
+
 const MyOrder = () => {
     const[user]= useAuthState(auth);
     const navigate = useNavigate();
+    const [modal,setModal]=useState(null);
     const email = user?.email;
-    const {data: myorders, isLoading } = useQuery("myorderDetais", () =>
+    const {data: myorders, isLoading ,refetch} = useQuery("myorderDetais", () =>
         fetch(`http://localhost:4000/order/${email}`, {
           method: "get",
           headers: {
@@ -33,7 +36,7 @@ const MyOrder = () => {
 
     return (
         <div className='m-3' >
-          <p className='text-3xl'> my order :{myorders?.length}</p> 
+          <p className='text-3xl'> Total  order :{myorders?.length}</p> 
             <div class="overflow-x-auto">
   <table class="table w-full">
   
@@ -41,21 +44,22 @@ const MyOrder = () => {
       <tr>
         <th></th>
         <th>Name</th>
+        <th>Image</th>
+        <th>Description</th>
         <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
-        <th>Status</th>
+        <th>Total</th>      
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
     
-     {myorders.map((order,index)=><OrderRow key={order._id} order={order} index={index}/>)}
-    
+     {myorders.map((order,index)=><OrderRow key={order._id} order={order} index={index} refetch={refetch} setModal={setModal}/>)}
+     
       
     </tbody>
   </table>
 </div>
+{modal &&<OrderDeleteModal  modal={modal} setModal={setModal}refetch={refetch} />}
         </div>
     );
 };

@@ -64,6 +64,7 @@ const AddProduct = () => {
     return (
         <div className='flex flex-col justify-center w-100'>
            <div className="mx-auto w-96">
+           <p className='text-3xl p-3'>Add Products</p>
       <form onSubmit={handleSubmit(onSubmit)} >
            {/* name */}
         <div class="form-control w-full max-w-xs">

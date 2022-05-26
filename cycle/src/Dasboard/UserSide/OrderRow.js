@@ -1,9 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const OrderRow = ({order,index}) => {
-    const{_id,name,img,desc,qnty,total ,paid} =order;
+import { Link } from 'react-router-dom';
+import OrderDeleteModal from './OrderDeleteModal';
+
+const OrderRow = ({order,index,refetch,setModal}) => {
+  
+    const{_id,name,img,desc,qnty,total ,paid,transactionId} = order;
     let decLength = desc.length;
+
+
     return (
         <tr>
         <th>{index+1}</th>
@@ -20,10 +25,22 @@ const OrderRow = ({order,index}) => {
         <td>{qnty}</td>
         <td>{total}</td>
         <td>
-       {(total && !paid) &&<><Link to={`/dashboard/payment/${_id}`}> <button class="btn btn-xs">Pay</button></Link> <button class="btn btn-xs btn-warning text-white">Cancel</button></> }
-       {(total && paid) &&  <span class="btn btn-xs btn-success text-white ">Paid</span> }
-        
+       {(total && !paid) &&<><Link to={`/dashboard/payment/${_id}`}> <button class="btn btn-xs">Pay</button>
+       </Link> 
+       <label for="my-modal-3" class="btn btn-xs"onClick={()=>setModal(order)} >Delete</label>
+      </> }
+       {(total && paid) && <div>
+          <span class="btn btn-xs btn-success text-white ">Paid</span>
+          <p className='text-sm text-bold'> Tansaction Id: {transactionId}</p>
+          </div> }
+           
         </td>
+
+      
+        
+
+
+
       </tr>
     );
 };

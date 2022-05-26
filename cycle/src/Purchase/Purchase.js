@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../firebse.init";
 import Loading from "../Shared/Loading";
 
@@ -11,6 +12,10 @@ const Purchase = () => {
 
   const { id } = useParams();
   const qtyRef = useRef();
+  const adressRef = useRef();
+  const phnRef = useRef();
+
+  
 const {data,isLoading, refetch} = useQuery("users", () =>
     fetch(`http://localhost:4000/tools/${id}`, {
       method: "get",
@@ -23,7 +28,11 @@ const {data,isLoading, refetch} = useQuery("users", () =>
     console.log(data);
     return <Loading />;
   }
-
+  const validateNum =()=>{
+    if (qtyRef.current.value < data.minorder) {qtyRef.current.value = data.minorder;}
+  
+   else if (qtyRef.current.value >data.available) {qtyRef.current.value = data.available;}
+  }
   // useEffect(()=>{
   //   const url = `http://localhost:4000/tools/${id}`;
   //   fetch(url)
@@ -38,6 +47,8 @@ const {data,isLoading, refetch} = useQuery("users", () =>
    const quantityHandle = (e) =>{
       e.preventDefault();
      const qnty = qtyRef.current.value;
+     const adress = adressRef.current.value;
+     const phone =  phnRef.current.value;
      let total = qnty*data?.price;
      let availableProduct = data?.available-qnty;
      if(qnty>data?.available){
@@ -56,7 +67,9 @@ const {data,isLoading, refetch} = useQuery("users", () =>
       "desc":data?.desc,
       "img":data?.img,
       "qnty":qnty,
-      "total":total
+      "total":total,
+      "adress":adress,
+      "phone":phone
     };
     fetch("http://localhost:4000/order", {
       method: "post",
@@ -68,11 +81,11 @@ const {data,isLoading, refetch} = useQuery("users", () =>
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-         alert('added')
+        toast('your order placed ');
           e.target.reset();
         
         } else {
-        alert('failed');
+          toast('Sorry can not   placed order!!');
         }
       });
 
@@ -103,6 +116,9 @@ const {data,isLoading, refetch} = useQuery("users", () =>
             <p class="text-justify">{data?.desc}</p>
             
             <div>
+              <label class="label">
+                  <span class="label-text text-3xl">Price:${data?.price}</span>
+                </label>
                 <label class="label">
                   <span class="label-text">Name:{user?.displayName}</span>
                 </label>
@@ -110,6 +126,7 @@ const {data,isLoading, refetch} = useQuery("users", () =>
                 <label class="label">
                   <span class="label-text">Email:{user?.email}</span>
                 </label>
+              
                 <label class="label">
                   <span class="label-text">Avaiable:{data?.available}</span>
                 </label>
@@ -127,17 +144,50 @@ const {data,isLoading, refetch} = useQuery("users", () =>
                 </label>
                 <input
                 min={minqty}
-                
+                max={maxorder}
                   ref={qtyRef}
                   type="number"
                   placeholder="qty"
+                  onChange={()=>{validateNum()}}
+                  class="input input-bordered w-full max-w-xs m-2"
+                  
+                />
+                 
+              </div>
+              <div class=" flex align-items-center flex-col md:flex-row">
+                <label class="label">
+                  <span class="label-text">Adress:</span>
+                </label>
+                <input
+               
+                
+                  ref={adressRef}
+                  type="text"
+                  placeholder="adress..."
+                  class="input input-bordered w-full max-w-xs m-2"
+                  
+                />
+               
+              </div>
+              <div class=" flex align-items-center flex-col md:flex-row">
+                <label class="label">
+                  <span class="label-text">Phone:</span>
+                </label>
+                <input
+               
+                
+                  ref={phnRef}
+                  type="text"
+                  placeholder="phone..."
                   class="input input-bordered w-full max-w-xs m-2"
                   
                 />
                  <input class="btn btn-md m-2" type="submit" value="Order" />
               </div>
-             
                  </form>
+
+                
+                
                  
                 </div>
              

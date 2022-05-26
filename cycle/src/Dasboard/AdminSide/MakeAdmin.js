@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading';
+import UserModal from './UserModal';
 
 import UserRow from './UserRow';
 
 const MakeAdmin = () => {
+  const [modal,setModal]=useState(null);
 
     const {data: users, isLoading, refetch, } = useQuery("users", () =>
         fetch(`http://localhost:4000/user`, {
@@ -22,7 +24,9 @@ const MakeAdmin = () => {
         <div className='p-5'>
            
             <div class="overflow-x-auto">
+            <p className='text-3xl p-3'>All Users</p>
   <table class="table table-compact w-full">
+  
     <thead>
       <tr>
         <th></th> 
@@ -33,7 +37,7 @@ const MakeAdmin = () => {
     </thead> 
     <tbody>
 
-     {users.map((user,index)=>< UserRow key={user._id} user={user} index={index} refetch={refetch} />)}
+     {users.map((user,index)=>< UserRow key={user._id} user={user} index={index} refetch={refetch} setModal={setModal} />)}
      
      
       
@@ -41,6 +45,7 @@ const MakeAdmin = () => {
     </tbody> 
     
   </table>
+  {modal && <UserModal modal={modal} setModal={setModal} refetch={refetch}></UserModal>}
 </div>
 
         </div>

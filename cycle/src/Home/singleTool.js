@@ -3,7 +3,7 @@ import {  useNavigate } from "react-router-dom";
 
 const SingleTool = ({ part }) => {
     const navigate = useNavigate();
-    const{_id,name,img,desc,price,quantity,available}=part;
+    const{_id,name,img,desc,price,minorder,available}=part;
     const purchase=(id)=>{
      navigate(`/purchase/${id}`);
     }
@@ -24,7 +24,7 @@ const SingleTool = ({ part }) => {
           <p className="card-actions justify-start text-sm text-justify ">{desc}</p>
           <div class="card-actions justify-center ">
             <div class="badge badge-outline">Price: ${price}</div>
-            <div class="badge badge-outline">Min Order: {quantity}</div>
+            <div class="badge badge-outline">Min Order: {minorder}</div>
             <div class="badge badge-outline">Avaiable: {available}</div>
           </div>
          <div > <button class="btn btn-warning text-white m-2 btn-sm " onClick={()=>purchase(_id)}>Book Order</button></div>
